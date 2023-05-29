@@ -1,7 +1,6 @@
 import myers
 
 
-
 def calculate_total(message, catalog_file):
 	prices = {}
 
@@ -20,6 +19,7 @@ def calculate_total(message, catalog_file):
 	lines_message = message.strip().split("\n")
 	print(lines_message)
 
+	print(myers.diff("ola", "hola"))
 	total = 0
 	for line in lines_message:
 		print(line)
