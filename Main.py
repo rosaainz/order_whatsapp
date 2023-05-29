@@ -2,20 +2,28 @@ import myers
 
 
 def calculate_total(message, catalog_file):
-	prices = {}
+	catalog_map = {}
+	message_map = {}
+
 
 	with open(catalog_file) as file:
 		lines = file.readlines()
 	
-	#procesar mensaje 
+	#process catalog
 	for line in lines[1:]:
 		line = line.strip()
 		price, product = line.split(",",1)
-		print(price)
-		print(product)
-		prices[product] = int(price)
+		catalog_map[product] = int(price)
+	
+	#process message
+	message_line = message.strip().split("\n")
+	for line in message_line:
+		quantity, product = line.split(" ",1)
 
-	print(prices)
+		for product_catalog, price in catalog_map.items():
+			difference = myers.diff(product, product_catalog)
+
+
 	return 0
 
 message = """
