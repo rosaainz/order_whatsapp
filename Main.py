@@ -17,14 +17,25 @@ def calculate_total(message, catalog_file):
 	
 	#process message
 	message_line = message.strip().split("\n")
+	message_line.sort()
+	total = 0
 	for line in message_line:
 		quantity, product = line.split(" ",1)
-
+		
 		for product_catalog, price in catalog_map.items():
 			difference = myers.diff(product, product_catalog)
-
-
-	return 0
+			acum = 0
+			for result in difference:
+				if result[0] == 'k':
+					acum += 1
+			
+			if len(difference)/2 < acum < len(difference):
+				print(product)
+				print(product_catalog)
+				price = catalog_map[product_catalog]
+				total_product = int(price) * int(quantity)
+				total += total_product
+	return total
 
 message = """
 2 Berlinesas de Queso Mascarpone
