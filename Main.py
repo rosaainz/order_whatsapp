@@ -19,7 +19,7 @@ def calculate_total(message, catalog_file):
 	lines_message = message.strip().split("\n")
 	print(lines_message)
 
-	print(myers.diff("ola", "hola"))
+
 	total = 0
 	for line in lines_message:
 		print(line)
@@ -30,7 +30,7 @@ def calculate_total(message, catalog_file):
 			catalog_price = prices[product]
 			total_product = int(quantity) * catalog_price
 			total += total_product
-
+	
 	return total
 
 message = """
@@ -43,7 +43,7 @@ message = """
 2 conchas vainilla ***
 2 roles glaseados
 """
-catalog_file = "catalog.txt"
+catalog_file = "catalog.csv"
 
 total_order = calculate_total(message, catalog_file)
 print(total_order)
