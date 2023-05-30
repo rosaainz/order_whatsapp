@@ -1,4 +1,5 @@
 import myers
+import re
 
 
 def calculate_total(message, catalog_file):
@@ -38,18 +39,17 @@ def calculate_total(message, catalog_file):
 	return total
 
 message = """
-2 Berlinesas de Queso Mascarpone
-2 Roles de Xoconostle
-2 Croissants de Higo
-2 Chocolatines
-2 Rol de Almendra
-4 Media Luna de Jamón y Queso
-2 conchas vainilla ***
-2 roles glaseados
+- 4 roles de canela 
+- 4 chocolatines 
+- 2 roles de Almendra 
+- 2 conchas de vainilla **
 """
 catalog_file = "catalog.csv"
 
-total_order = calculate_total(message, catalog_file)
+result = re.sub(r'[-*]','',message)
+print(result.strip())
+print(type(result))
+total_order = calculate_total(result, catalog_file)
 print(total_order)
 
 
