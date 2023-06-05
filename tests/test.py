@@ -1,6 +1,4 @@
-import unittest
-from order_whatsPython.lib.main import main
-
+from lib import main
 def func(x):
     return x + 1
 
