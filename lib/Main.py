@@ -42,20 +42,19 @@ def calculate_total(message, catalog_file):
 	return total
 
 message = """
-2 Concha Vainilla
-
-2 Concha Vainilla
-
-1 Concha Vainilla
-
-1 Concha Vainilla
-
-2 Concha Vainilla
+Buenos días, te doy mi pedido 😬😬😬
+2 Berlinesas
+2 roles de xoconostle 
+2 chocolatines
+1 rol de almendras 
+4 medias luna 
+3 roles glaseados
+1 concha de vainilla **
 """
-catalog_file = "catalog.csv"
+catalog_file = "../catalog.csv"
 
 total_order = calculate_total(message, catalog_file)
-print(total_order)
+print("Total: ",total_order)
 
 
 
