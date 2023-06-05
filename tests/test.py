@@ -1,4 +1,5 @@
 from lib import main
+
 def func(x):
     return x + 1
 

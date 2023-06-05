@@ -51,9 +51,9 @@ Buenos días, te doy mi pedido 😬😬😬
 3 roles glaseados
 1 concha de vainilla **
 """
-catalog_file = "../catalog.csv"
+#catalog_file = "../catalog.csv"
 
-total_order = calculate_total(message, catalog_file)
+#total_order = calculate_total(message, catalog_file)
 print("Total: ",total_order)
 
 
