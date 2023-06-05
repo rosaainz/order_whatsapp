@@ -54,7 +54,7 @@ Buenos días, te doy mi pedido 😬😬😬
 #catalog_file = "../catalog.csv"
 
 #total_order = calculate_total(message, catalog_file)
-print("Total: ",total_order)
+#print("Total: ",total_order)
 
 
 
