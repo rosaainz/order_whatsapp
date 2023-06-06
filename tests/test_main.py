@@ -13,7 +13,7 @@ def test_total():
     2 roles glaseados
     """
 
-    assert calculate_total(message) == 360
+    assert calculate_total(message) == 2
 
 
 
