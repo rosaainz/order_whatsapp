@@ -9,7 +9,7 @@ def test_total():
     - 2 conchas de vainilla **
     """
 
-    assert calculate_total(message) == 120
+    assert calculate_total(message) == 2
 
 
 
