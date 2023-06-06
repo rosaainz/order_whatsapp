@@ -1,7 +1,10 @@
 import myers
 import re
 
+def sumar(a, b):
+    return a + b
 
+    
 def calculate_total(message, catalog_file):
 	catalog_map = {}
 	message_map = {}
@@ -41,6 +44,9 @@ def calculate_total(message, catalog_file):
 				total += total_product
 	return total
 
+
+
+
 message = """
 Buenos días, te doy mi pedido 😬😬😬
 2 Berlinesas
@@ -51,10 +57,13 @@ Buenos días, te doy mi pedido 😬😬😬
 3 roles glaseados
 1 concha de vainilla **
 """
-catalog_file = "../catalog.csv"
 
-total_order = calculate_total(message, catalog_file)
-print("Total: ",total_order)
+
+
+#catalog_file = "/Users/rosasainz/Documents/prog/makingdevs/order_whatsPython/lib/catalog.csv"
+
+#total_order = calculate_total(message, catalog_file)
+#print("Total: ",total_order)
 
 
 
