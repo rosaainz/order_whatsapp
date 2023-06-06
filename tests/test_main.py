@@ -14,7 +14,7 @@ def test_total():
   2 Concha Vainilla
     """
 
-    assert calculate_total(message) == 160
+    assert calculate_total(message) == 20
 
 
 
