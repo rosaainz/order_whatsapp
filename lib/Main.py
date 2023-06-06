@@ -17,7 +17,6 @@ def calculate_total(message):
 		catalog_map[product] = int(price)
 	
 	#process message
-	print(message)
 	result = re.sub(r'\n\s*\n', '\n', message)
 	result = re.sub(r"^\s+|\s+$", "", result, flags=re.MULTILINE)
 	message_process = re.findall(r"(\d+)\s*(.*)", result)
@@ -37,11 +36,10 @@ def calculate_total(message):
 			if len(difference)/2 < acum < len(difference):
 				price = catalog_map[product_catalog]
 				total_product = int(price) * int(quantity)
+				print(int(price), "*", int(quantity), product)
 				total += total_product
 				cotizacion = total
 	return cotizacion
-
-
 
 
 
