@@ -1,16 +1,13 @@
 import myers
 import re
 
-def sumar(a, b):
-    return a + b
-
     
-def calculate_total(message, catalog_file):
+def calculate_total(message):
 	catalog_map = {}
 	message_map = {}
 
 
-	with open(catalog_file) as file:
+	with open('catalog.csv','r') as file:
 		lines = file.readlines()
 	
 	#process catalog
@@ -20,8 +17,8 @@ def calculate_total(message, catalog_file):
 		catalog_map[product] = int(price)
 	
 	#process message
-	result = re.sub(r"[[^...]]+", "", message)
-	result = re.sub(r'\n\s*\n', '\n', result)
+	print(message)
+	result = re.sub(r'\n\s*\n', '\n', message)
 	result = re.sub(r"^\s+|\s+$", "", result, flags=re.MULTILINE)
 	message_process = re.findall(r"(\d+)\s*(.*)", result)
 
@@ -39,31 +36,10 @@ def calculate_total(message, catalog_file):
 			
 			if len(difference)/2 < acum < len(difference):
 				price = catalog_map[product_catalog]
-				print(price ,"*",quantity, product_catalog )
 				total_product = int(price) * int(quantity)
 				total += total_product
-	return total
-
-
-
-
-message = """
-Buenos días, te doy mi pedido 😬😬😬
-2 Berlinesas
-2 roles de xoconostle 
-2 chocolatines
-1 rol de almendras 
-4 medias luna 
-3 roles glaseados
-1 concha de vainilla **
-"""
-
-
-
-#catalog_file = "/Users/rosasainz/Documents/prog/makingdevs/order_whatsPython/lib/catalog.csv"
-
-#total_order = calculate_total(message, catalog_file)
-#print("Total: ",total_order)
+				cotizacion = total
+	return cotizacion
 
 
 
