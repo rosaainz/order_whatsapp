@@ -50,7 +50,18 @@ from lib.main import calculate_total
             1 Concha Vainilla
 
             2 Concha Vainilla
-            """, 160)
+            """, 160),
+
+        ("""
+            2 Concha Vainilla
+            1 Conch Choc
+            2 Croissa
+            """, {'concha de vainilla' : 2, 'concha de chocolate' : 1, 'croissant': 2}),
+        ("""
+            2 C Va
+            1 Cho
+            2 Croissa H
+            """, {'rev1' : 2, 'rev2' : 1, 'rev3': 2})
     ]
 )
 def test_total_params_pass(input_x, expected):
