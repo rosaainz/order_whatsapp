@@ -25,7 +25,7 @@ def calculate_total(message):
 
 	total = 0
 	for tupla in message_process:
-		items = tupla[0]
+		item = tupla[0]
 		product = tupla[1]
 		
 		for product_catalog, price in catalog_map.items():
@@ -35,13 +35,15 @@ def calculate_total(message):
 				if result[0] == 'k':
 					acum += 1
 			
+			
 			if len(difference)/2 < acum < len(difference):
 				price = catalog_map[product_catalog]
-				total_product = int(price) * int(items)
-				print(int(price), "*", int(items), product_catalog)
+				matches[product_catalog] = item
+				print(matches)
+				total_product = int(price) * int(item)
+				print(int(price), "*", int(item), product_catalog)
 				total += total_product
-				cotizacion = total
-	return cotizacion
+	return matches
 
 
 
