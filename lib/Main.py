@@ -1,11 +1,10 @@
-import myers
+from fuzzywuzzy import fuzz
 import re
 
     
 def calculate_total(message):
 	catalog_map = {}
 	message_map = {}
-	matches = {}
 
 
 	with open('catalog.csv','r') as file:
@@ -24,22 +23,23 @@ def calculate_total(message):
 	message_process = re.findall(r"(\d+)\s*(.*)", result)
 
 	total = 0
+	result=0
 	for tupla in message_process:
 		item = tupla[0]
 		product = tupla[1]
-		
+
+		matches = {}
 		for product_catalog, price in catalog_map.items():
-			result = myers.diff(product.lower(), product_catalog.lower())
-			count = sum(1 for tuple in result if tuple[0] == 'k')
+			result = fuzz.ratio(product_catalog.lower(), product.lower())
+			matches[product_catalog] = result
+		print(matches)
+		maxi = max(matches.values())
+		print(maxi)
+		simi = [key for key, value in matches.items() if value == int(maxi)]
+		print(simi)
+		matches[str(simi[0])] = item
+	print(matches)
 			
-			
-			if len(difference)/2 < count < len(difference):
-				price = catalog_map[product_catalog]
-				matches[product_catalog] = item
-				print(matches)
-				total_product = int(price) * int(item)
-				print(int(price), "*", int(item), product_catalog)
-				total += total_product
 	return matches
 
 
