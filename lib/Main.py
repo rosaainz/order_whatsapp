@@ -29,14 +29,11 @@ def calculate_total(message):
 		product = tupla[1]
 		
 		for product_catalog, price in catalog_map.items():
-			difference = myers.diff(product, product_catalog)
-			acum = 0
-			for result in difference:
-				if result[0] == 'k':
-					acum += 1
+			result = myers.diff(product.lower(), product_catalog.lower())
+			count = sum(1 for tuple in result if tuple[0] == 'k')
 			
 			
-			if len(difference)/2 < acum < len(difference):
+			if len(difference)/2 < count < len(difference):
 				price = catalog_map[product_catalog]
 				matches[product_catalog] = item
 				print(matches)
