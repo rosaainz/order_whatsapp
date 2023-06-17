@@ -5,6 +5,7 @@ import re
 def calculate_total(message):
 	catalog_map = {}
 	message_map = {}
+	matches = {}
 
 
 	with open('catalog.csv','r') as file:
@@ -24,7 +25,7 @@ def calculate_total(message):
 
 	total = 0
 	for tupla in message_process:
-		quantity = tupla[0]
+		items = tupla[0]
 		product = tupla[1]
 		
 		for product_catalog, price in catalog_map.items():
@@ -36,8 +37,8 @@ def calculate_total(message):
 			
 			if len(difference)/2 < acum < len(difference):
 				price = catalog_map[product_catalog]
-				total_product = int(price) * int(quantity)
-				print(int(price), "*", int(quantity), product_catalog)
+				total_product = int(price) * int(items)
+				print(int(price), "*", int(items), product_catalog)
 				total += total_product
 				cotizacion = total
 	return cotizacion
